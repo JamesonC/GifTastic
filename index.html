@@ -16,21 +16,24 @@
 </head>
 
 <body>
-    <form>
-        <div class="form-row align-items-center">
-            <div class="col-auto">
-                <input id="gif-topic-input" type="text" class="form-control" placeholder="Add Gif">
+    <div class="container text-center">
+        <form class="form">
+            <div>
+                <div class="col-auto">
+                    <input id="gif-topic-input" type="text" class="form-control" placeholder="Add Gif">
+                </div>
+                <div class="col-auto">
+                    <button id="add-gif-topic" type="submit" class="btn btn-primary btn-block">Submit</button>
+                </div>
             </div>
-            <div class="col-auto">
-                <button id="add-gif-topic" type="submit" class="btn btn-primary">Submit</button>
-            </div>
+        </form>
+
+        <div id="buttons-view"></div>
+
+        <div id="wrapper" class="align-middle">
+            <div id="gifs-view" class="d-flex flex-wrap"></div>
         </div>
-    </form>
 
-    <div id="buttons-view"></div>
-
-    <div id="wrapper" class="align-middle">
-        <div id="gifs-view" class="d-flex flex-wrap"></div>
     </div>
 
     <!-- Optional JavaScript -->
