@@ -1,6 +1,6 @@
 // functions to create --> makeButton, renderButton 
 
-var topics = ["Silicon Valley", "Topic 2", "Topic 3", "Topic 4", "Topic 5"];
+var topics = ["Silicon Valley", "Chuck Norris", "Archor", "South Park", "Slow Clap"];
 
 function makeButton(name) {
     return `<button class='gif'>${name}</button>`;
@@ -21,16 +21,15 @@ $("#add-gif-topic").on("click", function (event) {
 
 function makeGif(topic) {
         return  `
-    <div> 
-        <div>
+    <div class='card'> 
+      <img class='card-image' src='${topic.images.fixed_height_still.url}'/>
       <h4>Rating: ${topic.rating}</h4>
-      <img src='${topic.images.original_still.url}'/>
-      </div>
     </div>
       ` 
     }
 
 $(document).on('click', '.gif', function () {
+    $(`#gifs-view`).empty();
     var topic = $(this).text();
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=oxClL7egdUmOnYP5STHkYWt3wkn2I0yX&limit=10";
 
@@ -39,7 +38,6 @@ $(document).on('click', '.gif', function () {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        
         response.data.map(gif => {
             $(`#gifs-view`).append(makeGif(gif));
         })

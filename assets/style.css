@@ -14,3 +14,21 @@
 .gif {
     margin: 5px;
 }
+
+.card {
+    margin: 5px;
+}
+
+.form-control-lg {
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+}
+
+.btn-lg {
+    width: 300px;
+}
+
+#gifs-view {
+    padding-left: 25px;
+}
