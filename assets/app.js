@@ -20,15 +20,15 @@ $("#add-gif-topic").on("click", function (event) {
 });
 
 function makeGif(topic) {
-    for (var i = 0; i <= 10; i++){
         return  `
     <div> 
-      <h4>Rating: ${topic.data[i].rating}</h4>
-      <img src='${topic.data[i].images.original_still.url}'/>
+        <div>
+      <h4>Rating: ${topic.rating}</h4>
+      <img src='${topic.images.original_still.url}'/>
+      </div>
     </div>
       ` 
     }
-}
 
 $(document).on('click', '.gif', function () {
     var topic = $(this).text();
@@ -38,10 +38,12 @@ $(document).on('click', '.gif', function () {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
-        $(`#gifs-view`).append(makeGif(response));
+        console.log(response);
+        
+        response.data.map(gif => {
+            $(`#gifs-view`).append(makeGif(gif));
+        })
     })
 })
-
 
 renderButtons();
