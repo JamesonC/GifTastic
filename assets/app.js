@@ -1,6 +1,6 @@
 // functions to create --> makeButton, renderButton 
 
-var topics = ["Silicon Valley", "Chuck Norris", "Archor", "South Park", "Slow Clap"];
+var topics = ["Silicon Valley", "Chuck Norris", "Archor", "South Park", "Game of Thrones"];
 
 function makeButton(name) {
     return `<button class='btn btn-outline-primary'>${name}</button>`;
@@ -22,7 +22,7 @@ $("#add-gif-topic").on("click", function (event) {
 function makeGif(topic) {
         return  `
     <div class='card shadow-sm bg-white rounded'> 
-      <img class='card-image' src='${topic.images.fixed_height_still.url}'/>
+      <img class='card-image' src='${topic.images.fixed_height.url}'/>
       <h4 class='text-capitalize rating'>Rating: ${topic.rating}</h4>
     </div>
       ` 
