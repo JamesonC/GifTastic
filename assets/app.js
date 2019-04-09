@@ -3,7 +3,7 @@
 var topics = ["Silicon Valley", "Chuck Norris", "Archor", "South Park", "Slow Clap"];
 
 function makeButton(name) {
-    return `<button class='gif'>${name}</button>`;
+    return `<button class='btn btn-outline-primary'>${name}</button>`;
 }
 
 // Function for displaying gif data
@@ -23,12 +23,12 @@ function makeGif(topic) {
         return  `
     <div class='card'> 
       <img class='card-image' src='${topic.images.fixed_height_still.url}'/>
-      <h4>Rating: ${topic.rating}</h4>
+      <h4 class='rating'>Rating: ${topic.rating}</h4>
     </div>
       ` 
     }
 
-$(document).on('click', '.gif', function () {
+$(document).on('click', '.btn', function () {
     $(`#gifs-view`).empty();
     var topic = $(this).text();
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=oxClL7egdUmOnYP5STHkYWt3wkn2I0yX&limit=10";
