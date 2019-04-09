@@ -21,7 +21,7 @@ $("#add-gif-topic").on("click", function (event) {
 
 function makeGif(topic) {
         return  `
-    <div class='card'> 
+    <div class='card shadow-sm bg-white rounded'> 
       <img class='card-image' src='${topic.images.fixed_height_still.url}'/>
       <h4 class='text-capitalize rating'>Rating: ${topic.rating}</h4>
     </div>
