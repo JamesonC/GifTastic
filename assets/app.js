@@ -23,7 +23,7 @@ function makeGif(topic) {
         return  `
     <div class='card'> 
       <img class='card-image' src='${topic.images.fixed_height_still.url}'/>
-      <h4 class='rating'>Rating: ${topic.rating}</h4>
+      <h4 class='text-capitalize rating'>Rating: ${topic.rating}</h4>
     </div>
       ` 
     }
