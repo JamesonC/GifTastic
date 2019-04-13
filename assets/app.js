@@ -26,6 +26,9 @@ function makeGif(topic) {
       <h4 class='text-capitalize rating'>Rating: ${topic.rating}</h4>
     </div>
       ` 
+      // add data attributes for 'still' and 'animate'
+      // "data-still", topic.images.fixed_height_still.url);
+      // "data-animate", topic.images.fixed_height.url);
     }
 
 $(document).on('click', '.btn', function () {
@@ -37,7 +40,7 @@ $(document).on('click', '.btn', function () {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response);
+
         response.data.map(gif => {
             $(`#gifs-view`).append(makeGif(gif));
         })
@@ -45,3 +48,5 @@ $(document).on('click', '.btn', function () {
 })
 
 renderButtons();
+
+// make if/else statements for click on #gifs-view images
