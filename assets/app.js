@@ -1,9 +1,9 @@
 // functions to create --> makeButton, renderButton 
 
-var topics = ["Silicon Valley", "Chuck Norris", "Archor", "South Park", "Slow Clap"];
+var topics = ["Silicon Valley", "Chuck Norris", "Archor", "South Park", "Game of Thrones"];
 
 function makeButton(name) {
-    return `<button class='gif'>${name}</button>`;
+    return `<button class='btn btn-outline-primary'>${name}</button>`;
 }
 
 // Function for displaying gif data
@@ -21,14 +21,17 @@ $("#add-gif-topic").on("click", function (event) {
 
 function makeGif(topic) {
         return  `
-    <div class='card'> 
-      <img class='card-image' src='${topic.images.fixed_height_still.url}'/>
-      <h4>Rating: ${topic.rating}</h4>
+    <div class='card shadow-sm bg-white rounded'> 
+      <img class='card-image' src='${topic.images.fixed_height.url}'/>
+      <h4 class='text-capitalize rating'>Rating: ${topic.rating}</h4>
     </div>
       ` 
+      // add data attributes for 'still' and 'animate'
+      // "data-still", topic.images.fixed_height_still.url);
+      // "data-animate", topic.images.fixed_height.url);
     }
 
-$(document).on('click', '.gif', function () {
+$(document).on('click', '.btn', function () {
     $(`#gifs-view`).empty();
     var topic = $(this).text();
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=oxClL7egdUmOnYP5STHkYWt3wkn2I0yX&limit=10";
@@ -37,7 +40,7 @@ $(document).on('click', '.gif', function () {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response);
+
         response.data.map(gif => {
             $(`#gifs-view`).append(makeGif(gif));
         })
@@ -45,3 +48,5 @@ $(document).on('click', '.gif', function () {
 })
 
 renderButtons();
+
+// make if/else statements for click on #gifs-view images
